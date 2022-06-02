@@ -1,11 +1,6 @@
-<!DOCTYPE HTML>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Learning Flask</title>
-    </head>
+{% extends 'layout.html' %}
+{% block title %}Information{% endblock title %}
 
-    <body>
-        {{text|safe}}
-    </body>
-</html>
+{% block content %}
+    {{text|safe}}
+{% endblock content %}

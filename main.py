@@ -7,6 +7,8 @@ def index():
     return render_template('index.html')
 
 
+
+
 @app.route('/information')
 @app.route('/information/<string:name>')
 def information(name = None):
