@@ -27,8 +27,12 @@ def information(name = None):
 @app.route('/contact')
 @app.route('/contact/<redirection>')
 def contact(redirection = None):
+   
+    text = "<h1>contact</h1>"
     if redirection:
-        return "<h1>contact</h1>"
+        return render_template('contact.html', 
+                            text=text
+                            )
     else:
         return redirect(url_for('information'))
 
