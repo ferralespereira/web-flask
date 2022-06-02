@@ -1,20 +1,25 @@
-from flask import Flask, redirect, url_for
+from flask import Flask, redirect, url_for, render_template
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return "learning flask"
+    return render_template('index.html')
 
 
 @app.route('/information')
 @app.route('/information/<string:name>')
 def information(name = None):
 
+    text = "<strong>information, do not have a name</strong>"
     if name:
-        return f"<h1>information {name}</h1>"
-    else:
-        return f"<h1>information, do not have a name</h1>"
+        text = f"<h1>information {name}</h1>"
+
+    return render_template('information.html', 
+                            text=text
+                            )
+
+
 
 
 @app.route('/contact')
