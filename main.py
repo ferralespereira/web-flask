@@ -6,9 +6,9 @@ app = Flask(__name__)
 def index():
     return "learning flask"
 
-@app.route('/information')
-def information():
-    return "<h1>information</h1>"
+@app.route('/information/<string:name>/<string:last_name>')
+def information(name, last_name):
+    return f"<h1>information {name} {last_name}</h1>"
 
 @app.route('/contact')
 def contact():
