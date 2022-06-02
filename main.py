@@ -6,9 +6,15 @@ app = Flask(__name__)
 def index():
     return "learning flask"
 
-@app.route('/information/<string:name>/<string:last_name>')
-def information(name, last_name):
-    return f"<h1>information {name} {last_name}</h1>"
+@app.route('/information')
+@app.route('/information/<string:name>')
+def information(name = None):
+
+    if name:
+        return f"<h1>information {name}</h1>"
+    else:
+        return f"<h1>information, do not have a name</h1>"
+
 
 @app.route('/contact')
 def contact():
