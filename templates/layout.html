@@ -18,9 +18,9 @@
               </button>
               <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                  <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Home</a>
-                  <a class="nav-link" href="{{ url_for('information') }}">Information</a>
-                  <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+                  <a class="nav-link" id="home-navBar-link" aria-current="page" href="{{ url_for('index') }}">Home</a>
+                  <a class="nav-link" id="information-navBar-link" href="{{ url_for('information') }}">Information</a>
+                  <a class="nav-link" id="contact-navBar-link" href="{{ url_for('contact') }}">Contact</a>
                 </div>
               </div>
             </div>
@@ -37,5 +37,7 @@
         
         <!-- Boostrap JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+        <script type="text/javascript" src="{{ url_for('static', filename = 'js/layout.js') }}"></script>
     </body>
 </html>
