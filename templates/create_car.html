@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+{% block title %}Create Car{% endblock title %}
+
+{% block content %}
+    
+    <div class="card  col-md-4 mt-3 border-primary">
+        <div class="card-header text-bg-primary fw-bold">
+            Create Car
+        </div>
+        
+        <form action="" method='POST' class="p-4">
+
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="brand" name="brand" placeholder="">
+                <label for="brand">Brand</label>
+            </div>
+
+
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="model" name="model" placeholder="">
+                <label for="model">Model</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="price" name="price" placeholder="">
+                <label for="price">Price</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="location" name="location" placeholder="">
+                <label for="location">Location</label>
+            </div>
+
+            <button type="submit" title="Add Car" class="bi bi-check2 text-primary fs-1 border-0 bg-transparent float-end"></button>
+
+        </form>
+    
+    </div>            
+    
+{% endblock content %}

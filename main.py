@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for, render_template
+from flask import Flask, redirect, url_for, render_template, request
 from datetime import datetime
 from flask_mysqldb import MySQL
 
@@ -60,12 +60,15 @@ def contact(redirection = None):
 
 @app.route('/create-car')
 def create_car():
-    cursor = mysql.connection.cursor()
-    cursor.execute(f"INSERT INTO cars VALUES(NULL, 'Lambo', 'Gallardo', '100000', 'Los Angeles')")
-    cursor.connection.commit()
 
-    return redirect(url_for('index'))
+    if request.method == 'POST':
+        cursor = mysql.connection.cursor()
+        cursor.execute(f"INSERT INTO cars VALUES(NULL, 'Lambo', 'Gallardo', '100000', 'Los Angeles')")
+        cursor.connection.commit()
 
+        return redirect(url_for('index'))
+
+    return render_template('create_car.html', text='lola')
 
 if __name__ == '__main__':
     app.run(debug=True)
