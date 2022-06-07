@@ -58,6 +58,13 @@ def contact(redirection = None):
         return redirect(url_for('information'))
 
 
+@app.route('/create-car')
+def create_car():
+    cursor = mysql.connection.cursor()
+    cursor.execute(f"INSERT INTO cars VALUES(NULL, 'Lambo', 'Gallardo', '100000', 'Los Angeles')")
+    cursor.connection.commit()
+
+    return redirect(url_for('index'))
 
 
 if __name__ == '__main__':
