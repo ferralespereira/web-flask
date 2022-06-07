@@ -58,14 +58,23 @@ def contact(redirection = None):
         return redirect(url_for('information'))
 
 
-@app.route('/create-car')
+@app.route('/create-car', methods=['GET', 'POST'])
 def create_car():
 
     if request.method == 'POST':
+
+        brand    = request.form['brand']
+        model    = request.form['model']
+        price    = request.form['price']
+        location = request.form['location']
+
+        return f"{brand} {model} {price} {location}"
+
+        """
         cursor = mysql.connection.cursor()
         cursor.execute(f"INSERT INTO cars VALUES(NULL, 'Lambo', 'Gallardo', '100000', 'Los Angeles')")
         cursor.connection.commit()
-
+        """
         return redirect(url_for('index'))
 
     return render_template('create_car.html', text='lola')
