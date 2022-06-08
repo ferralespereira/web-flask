@@ -3,4 +3,17 @@
     
     {% block content %}
         <h1>home content</h1>
+
+        {% with messages = get_flashed_messages()  %}
+            {% if messages %}
+                {% for message in messages %}
+                  
+                  <div class="alert alert-success col-md-4" role="alert">
+                    {{ message }}
+                  </div>
+                  
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
     {% endblock content %}
