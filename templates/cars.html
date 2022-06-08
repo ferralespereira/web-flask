@@ -1,5 +1,5 @@
 {% extends 'layout.html' %}
-{% block title %}cars{% endblock title %}
+{% block title %}Cars{% endblock title %}
 
 {% block content %}
 
@@ -8,6 +8,7 @@
         <div class="col-md-3" >
             <div class="card mt-3 border-primary">
                 <div class="card-header text-bg-primary fw-bold">
+                    <a href="{{ url_for('car', car_id=car.0) }}">
                     {{car.1}}
                 </div>
                 

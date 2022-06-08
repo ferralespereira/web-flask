@@ -88,6 +88,15 @@ def cars():
 
     return render_template('cars.html', cars = cars)
 
+@app.route('/car/<car_id>')
+def car(car_id):
+    cursor = mysql.connection.cursor()
+    cursor.execute("select * FROM cars WHERE id = %s", (car_id))
+    car = cursor.fetchall()
+    cursor.close()
+
+    return render_template('car.html', car = car[0])
+
 if __name__ == '__main__':
     app.run(debug=True)
 
