@@ -8,11 +8,13 @@
         <div class="col-md-3" >
             <div class="card mt-3 border-primary">
                 <div class="card-header text-bg-primary fw-bold">
-                    <a href="{{ url_for('car', car_id=car.0) }}">
                     {{car.1}}
                 </div>
                 
                 <div class="p-3">
+                    <a href="{{ url_for('car', car_id=car.0) }}">
+                        go
+                    </a>
                     <p class="fs-4 fst-italic fw-bold">{{car.2}}</p>
                     <p class="fs-5">{{car.3}}</p>
                     <p class="fs-4">{{car.4}}</p>

@@ -3,6 +3,18 @@
 
 {% block content %}
 
+{% with messages = get_flashed_messages()  %}
+{% if messages %}
+    {% for message in messages %}
+      
+      <div class="alert alert-success col-md-4" role="alert">
+        {{ message }}
+      </div>
+      
+    {% endfor %}
+{% endif %}
+{% endwith %}
+
 <div class="col-md-3" >
     <div class="card mt-3 border-primary">
         <div class="card-header text-bg-primary fw-bold">
@@ -16,7 +28,7 @@
 
             <p class="float-end">
                 <a class="bi bi-pencil-square btn fs-3 text-secondary border-0" href=""></a>
-                <a class="bi bi-trash btn fs-3 text-secondary border-0" href=""></a>
+                <a class="bi bi-trash btn fs-3 text-secondary border-0" href="{{ url_for('delete_car', car_id=car.0) }}"></a>
             </p>
         </div>
 
