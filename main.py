@@ -68,13 +68,10 @@ def create_car():
         price    = request.form['price']
         location = request.form['location']
 
-        return f"{brand} {model} {price} {location}"
-
-        """
         cursor = mysql.connection.cursor()
-        cursor.execute(f"INSERT INTO cars VALUES(NULL, 'Lambo', 'Gallardo', '100000', 'Los Angeles')")
+        cursor.execute("INSERT INTO cars VALUES(NULL, %s, %s, %s, %s)", (brand, model, price, location))
         cursor.connection.commit()
-        """
+
         return redirect(url_for('index'))
 
     return render_template('create_car.html', text='lola')
