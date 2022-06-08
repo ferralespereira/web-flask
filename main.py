@@ -79,6 +79,15 @@ def create_car():
 
     return render_template('create_car.html', text='lola')
 
+@app.route('/cars')
+def cars():
+    cursor = mysql.connection.cursor()
+    cursor.execute("select * FROM cars")
+    cars = cursor.fetchall()
+    cursor.close()
+
+    return render_template('cars.html', cars = cars)
+
 if __name__ == '__main__':
     app.run(debug=True)
 
