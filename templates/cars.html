@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% block title %}cars{% endblock title %}
+
+{% block content %}
+
+    <div class="row" >
+        {% for car in cars %}
+        <div class="col-md-3" >
+            <div class="card mt-3 border-primary">
+                <div class="card-header text-bg-primary fw-bold">
+                    {{car.1}}
+                </div>
+                
+                <div class="p-3">
+                    <p class="fs-4 fst-italic fw-bold">{{car.2}}</p>
+                    <p class="fs-5">{{car.3}}</p>
+                    <p class="fs-4">{{car.4}}</p>
+
+                    <p class="float-end">
+                        <a class="bi bi-pencil-square btn fs-3 text-secondary border-0" href=""></a>
+                        <a class="bi bi-trash btn fs-3 text-secondary border-0" href=""></a>
+                    </p>
+                </div>
+
+            </div>            
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock content %}
