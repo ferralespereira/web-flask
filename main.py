@@ -100,9 +100,9 @@ def car(car_id):
 @app.route('/delete-car/<car_id>')
 def delete_car(car_id):
     cursor = mysql.connection.cursor()
-    cursor.execute("DELETE * FROM cars WHERE id = %s", (car_id))
+    cursor.execute("DELETE FROM cars WHERE id = %s", (car_id))
     mysql.connection.commit()
-    
+
     flash('Car Removed!')
     return redirect(url_for('cars'))
 
