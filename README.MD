@@ -13,7 +13,7 @@ This is a web site made it in Flask with the goal of make a CRUD with Mysql data
 `source venv/bin/activate`
 
 * Install flask and this others package into venv:
-`pip3 install flask; pip3 install wtforms`
+`pip3 install flask; pip3 install wtforms; pip3 install flask_mysqldb`
 
 * Install Gunicorn:
 `pip3 install gunicorn`
@@ -78,7 +78,7 @@ WantedBy=multi-user.target
 * Create the Apache host configuration file to look like this:
 `sudo nano /etc/apache2/sites-enabled/000-default.conf`
 ```
-# chat-flask-v1
+# web-flask
 <VirtualHost 127.0.0.10:80>
         ServerAdmin root@ubuntu
 
@@ -86,8 +86,8 @@ WantedBy=multi-user.target
         CustomLog ${APACHE_LOG_DIR}/webflask-access.log combined
 
         <Location />
-                ProxyPass unix:/var/www/html/chat-flask-v1/webflask.sock|http://127.0.0.11/
-                ProxyPassReverse unix:/var/www/html/chat-flask-v1/webflask.sock|http://127.0.0.11/
+                ProxyPass unix:/var/www/html/web-flask/webflask.sock|http://127.0.0.11/
+                ProxyPassReverse unix:/var/www/html/web-flask/webflask.sock|http://127.0.0.11/
         </Location>
 </VirtualHost>
 ```

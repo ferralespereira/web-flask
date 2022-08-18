@@ -1,0 +1,4 @@
+__pycache__/
+gunicorn_config.py
+venv/
+wsgi.py
