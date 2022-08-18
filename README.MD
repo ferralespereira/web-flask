@@ -1,7 +1,7 @@
 # Flask
 This is a web site made it in Flask with the goal of make a CRUD with Mysql database.
 
-## To Deploy in Ubuntu, Gunicorn and Apache2 server:
+## To Deploy in Ubuntu with Gunicorn and Apache2 server:
 
 * Clone the project:
 `git clone https://github.com/ferralespereira/WebFlask.git`
@@ -73,3 +73,23 @@ WantedBy=multi-user.target
 
 * Reload, Restart and Status ststemctl:
 `sudo systemctl daemon-reload; sudo systemctl restart webflask.service; sudo systemctl status webflask.service`
+
+* Create the Apache host configuration file to look like this:
+`sudo nano /etc/apache2/sites-enabled/000-default.conf`
+```
+# chat-flask-v1
+<VirtualHost 127.0.0.10:80>
+        ServerAdmin root@ubuntu
+
+        ErrorLog ${APACHE_LOG_DIR}/webflask-error.log
+        CustomLog ${APACHE_LOG_DIR}/webflask-access.log combined
+
+        <Location />
+                ProxyPass unix:/var/www/html/chat-flask-v1/webflask.sock|http://127.0.0.11/
+                ProxyPassReverse unix:/var/www/html/chat-flask-v1/webflask.sock|http://127.0.0.11/
+        </Location>
+</VirtualHost>
+```
+
+* Reload the Apache2 service:
+`sudo systemctl reload apache2`
