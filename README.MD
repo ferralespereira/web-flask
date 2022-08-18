@@ -35,6 +35,7 @@ if __name__ == '__main__':
 
 ### ----------*Second Part of Deploiment*------------
 
+
 * Create a file named "gunicorn_config.py" like this in the root of your project folder:
 ```
 import multiprocessing
