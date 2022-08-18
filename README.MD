@@ -33,7 +33,7 @@ if __name__ == '__main__':
 * Deactivate virtual enviroment:
 `deactivate`
 
-### ----------*Second Part of Deploiment*------------
+### ----------*Second Part of Deploiment*--------------
 
 
 * Create a file named "gunicorn_config.py" like this in the root of your project folder:
