@@ -1,10 +1,10 @@
-# Flask
+# Web-Flask
 This is a web site made it in Flask with the goal of make a CRUD with Mysql database.
 
 ## To Deploy in Ubuntu with Gunicorn and Apache2 server:
 
 * Clone the project:
-`git clone https://github.com/ferralespereira/WebFlask.git`
+`git clone https://github.com/ferralespereira/web-flask.git`
 
 * Go to project folder and create a venv (virtual enviroment):
 `python3 -m venv venv`
